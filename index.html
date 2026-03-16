@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kilat Wash | Spesialis Cuci Motor Premium & Detailing</title>
-    <meta name="description" content="Kilat Wash - Solusi cuci motor kinclong kilat di Jakarta & Tangerang. Layanan kinclong, Kilau, hingga Deep Detailing Magic dengan garansi 24 jam.">
+    <meta name="description" content="Kilat Wash - Solusi cuci motor kinclong kilat di Jakarta & Tangerang. Layanan Basic Glow, Super Shine, hingga Deep Detailing Magic dengan garansi 24 jam.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
@@ -15,6 +15,15 @@
                     colors: {
                         primary: '#facc15', // Yellow 400
                         secondary: '#1e293b', // Slate 800
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
                     }
                 }
             }
@@ -37,6 +46,11 @@
             scrollbar-width: none;
             scroll-behavior: smooth;
         }
+        /* Custom Marquee Style */
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
@@ -46,7 +60,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <!-- Logo bisa diklik untuk kembali ke atas -->
                     <a href="#home" class="text-2xl font-black italic text-primary tracking-tighter hover:opacity-80 transition-opacity">KILAT WASH</a>
                 </div>
                 <div class="hidden md:block">
@@ -81,7 +94,21 @@
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">#1 Motor Spa Treatment</h2>
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">MOTOR KOTOR? <br><span class="text-primary">KILATIN</span> AJA!</h1>
+                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-2">MOTOR KOTOR? <br><span class="text-primary">KILATIN</span> AJA!</h1>
+                
+                <!-- NEW: Running Text Dinamis -->
+                <div class="marquee-wrapper w-full bg-slate-100 dark:bg-slate-800/50 py-2 rounded-lg mb-6 border border-slate-200 dark:border-slate-700">
+                    <div id="running-text" class="inline-block animate-marquee whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300">
+                        <!-- Konten diisi via JS -->
+                    </div>
+                </div>
+
+                <!-- Jam Operasional Dinamis (Home) -->
+                <div id="status-toko-home" class="mb-6 flex items-center gap-3 text-sm font-bold bg-white/50 dark:bg-slate-800/50 w-fit px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <span id="dot-status" class="flex h-3 w-3 rounded-full"></span>
+                    <span id="text-status-jam">Memuat status...</span>
+                </div>
+
                 <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-md">Layanan cuci motor premium dengan teknologi steam terbaru. Bersih sampai ke sela-sela terdalam dalam waktu singkat.</p>
                 <div class="flex gap-4">
                     <a href="#cuci" class="bg-primary text-slate-900 px-8 py-4 rounded-full font-bold hover:scale-105 transition shadow-lg shadow-yellow-400/20">Lihat Menu</a>
@@ -93,9 +120,8 @@
                 </div>
             </div>
             
-            <!-- Category Carousel with Auto-slide and Side Arrows -->
+            <!-- Category Carousel -->
             <div class="relative">
-                <!-- Arrow Buttons - Positioned on sides -->
                 <button onclick="scrollCarousel(-1)" class="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all">
                     <i class="fas fa-chevron-left"></i>
                 </button>
@@ -104,15 +130,14 @@
                 </button>
 
                 <div id="category-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-4 carousel-container py-4">
-                    <!-- Kecil -->
                     <div class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                        <img src="https://images.unsplash.com/photo-1558981403-c5f91cb9c2f1?auto=format&fit=crop&q=80&w=400" alt="Motor Kecil" class="w-full h-full object-cover opacity-80">
+                        <div class="h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558981403-c5f91cb9c2f1?auto=format&fit=crop&q=80&w=400" alt="Motor Kecil" class="w-full h-full object-cover opacity-80">
                         </div>
                         <h3 class="text-2xl font-bold mb-2">Kategori Kecil</h3>
                         <p class="text-slate-500 mb-4 text-sm">Motor Bebek/Cub, Matic Ringkas (Beat, Scoopy, Vario, Gear, dll)</p>
-                        <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase"></span>
+                        <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase">Best Seller</span>
                     </div>
-                    <!-- Sedang -->
                     <div class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
                         <div class="h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=400" alt="Motor Sedang" class="w-full h-full object-cover opacity-80">
@@ -120,7 +145,6 @@
                         <h3 class="text-2xl font-bold mb-2">Kategori Sedang</h3>
                         <p class="text-slate-500 mb-4 text-sm">Maxi Scooter & Sport Naked (NMAX, PCX, Vixion, CB150R, dll)</p>
                     </div>
-                    <!-- Sport -->
                     <div class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
                         <div class="h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=400" alt="Motor Sport" class="w-full h-full object-cover opacity-80">
@@ -138,10 +162,10 @@
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-4xl font-black mb-12">PILIH TREATMENT TERBAIKMU</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- kinclong -->
+                <!-- Basic Glow -->
                 <div class="p-8 rounded-3xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary transition duration-300">
                     <div class="text-4xl text-primary mb-4"><i class="fas fa-soap"></i></div>
-                    <h3 class="text-2xl font-bold mb-2">kinclong</h3>
+                    <h3 class="text-2xl font-bold mb-2">Basic Glow</h3>
                     <p class="text-slate-500 text-sm mb-6">Cuci bersih menyeluruh + Free Semir Ban agar tetap elegan di jalan.</p>
                     <ul class="text-left space-y-3 mb-8 text-sm">
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Kecil</span> <span class="font-bold text-primary">Rp 20rb</span></li>
@@ -150,11 +174,12 @@
                     </ul>
                 </div>
 
-                <!-- Kilau + Wax -->
-                <div class="p-8 rounded-3xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary transition duration-300">
+                <!-- Super Shine + Wax -->
+                <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border-2 border-primary relative transform scale-105 shadow-2xl">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-slate-900 px-4 py-1 rounded-full text-xs font-black uppercase">Terpopuler</div>
                     <div class="text-4xl text-primary mb-4"><i class="fas fa-sparkles"></i></div>
-                    <h3 class="text-2xl font-bold mb-2">KILAU</h3>
-                    <p class="text-slate-500 text-sm mb-6">kinclong + Waxing Body halus & kasar. Proteksi cat dan efek daun talas!</p>
+                    <h3 class="text-2xl font-bold mb-2">Super Shine + Wax</h3>
+                    <p class="text-slate-500 text-sm mb-6">Basic Glow + Waxing Body halus & kasar. Proteksi cat dan efek daun talas!</p>
                     <ul class="text-left space-y-3 mb-8 text-sm font-medium">
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Kecil</span> <span class="font-bold text-primary">Rp 40rb</span></li>
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Sedang</span> <span class="font-bold text-primary">Rp 45rb</span></li>
@@ -165,8 +190,8 @@
                 <!-- Deep Detailing Magic -->
                 <div class="p-8 rounded-3xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary transition duration-300">
                     <div class="text-4xl text-primary mb-4"><i class="fas fa-magic"></i></div>
-                    <h3 class="text-2xl font-bold mb-2">GHOIB</h3>
-                    <p class="text-slate-500 text-sm mb-6"> Untuk melunturkan karat, kerak mesin, dan jamur body silver.</p>
+                    <h3 class="text-2xl font-bold mb-2">Deep Detailing Magic</h3>
+                    <p class="text-slate-500 text-sm mb-6">Layanan Ghoib untuk melunturkan karat, kerak mesin, dan jamur body silver.</p>
                     <ul class="text-left space-y-3 mb-8 text-sm">
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Kecil</span> <span class="font-bold text-primary">Rp 60rb</span></li>
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Sedang</span> <span class="font-bold text-primary">Rp 65rb</span></li>
@@ -187,10 +212,9 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
-                <!-- Membership Card -->
                 <div class="bg-slate-900 border border-slate-800 p-8 rounded-[2rem] shadow-2xl">
                     <h3 class="text-2xl font-bold mb-6 text-primary"><i class="fas fa-tags mr-2"></i> PAKET HEMAT (2 Bulan)</h3>
-                    <p class="mb-6 text-slate-400">Dapatkan 2x kinclong + 1x Kilau (Waxing) selama 2 bulan.</p>
+                    <p class="mb-6 text-slate-400">Dapatkan 2x Basic Glow + 1x Super Shine (Waxing) selama 2 bulan.</p>
                     <div class="space-y-4">
                         <div class="flex items-center justify-between p-4 bg-slate-800 rounded-xl border border-slate-700">
                             <span>Motor Kecil</span>
@@ -207,13 +231,12 @@
                     </div>
                 </div>
 
-                <!-- VIP Card -->
                 <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 text-slate-950 p-8 rounded-[2rem] shadow-2xl transform md:-rotate-1">
                     <div class="flex justify-between items-start mb-6">
                         <h3 class="text-2xl font-black uppercase">VIP UNLIMITED</h3>
                         <i class="fas fa-crown text-3xl"></i>
                     </div>
-                    <p class="font-medium mb-6 opacity-80">Bebas cuci kinclong kapanpun selama 3 bulan penuh!</p>
+                    <p class="font-medium mb-6 opacity-80">Bebas cuci Basic Glow kapanpun selama 3 bulan penuh!</p>
                     <div class="space-y-4">
                         <div class="flex items-center justify-between p-4 bg-white/20 rounded-xl backdrop-blur-sm border border-white/30">
                             <span class="font-bold">Motor Kecil</span>
@@ -230,12 +253,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Loyalty -->
-            <div class="mt-16 p-8 bg-primary/10 border border-primary/30 rounded-3xl text-center max-w-2xl mx-auto">
-                <h4 class="text-2xl font-bold mb-2">Loyalitas 9+1</h4>
-                <p class="text-slate-300">Cuci 9x, yang ke-10 <span class="text-primary font-bold">GRATIS!</span> (Berlaku untuk kinclong)</p>
-            </div>
         </div>
     </section>
 
@@ -245,8 +262,19 @@
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
                     <h2 class="text-4xl font-black mb-8">KUNJUNGI KAMI</h2>
+                    
+                    <!-- Jam Operasional Dinamis (About) -->
+                    <div class="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-black text-lg mb-2 flex items-center gap-2">
+                            <i class="fas fa-clock text-primary"></i> JAM OPERASIONAL
+                        </h4>
+                        <p class="text-slate-600 dark:text-slate-400 mb-2 font-bold">Senin - Minggu: 08:00 - 21:00</p>
+                        <div id="status-toko-about" class="flex items-center gap-2 text-sm font-bold">
+                            <!-- Status ditambahkan via JS -->
+                        </div>
+                    </div>
+
                     <div class="space-y-6">
-                        <!-- Kedoya -->
                         <a href="https://maps.google.com/?q=Kedoya+Jakarta+Barat" target="_blank" class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 transition group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
                             <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-slate-900"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
@@ -254,19 +282,10 @@
                                 <p class="text-sm text-slate-500">Klik untuk navigasi di Maps</p>
                             </div>
                         </a>
-                        <!-- Karang Tengah -->
                         <a href="https://maps.google.com/?q=Karang+Tengah+Tangerang" target="_blank" class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 transition group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
                             <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-slate-900"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
                                 <h4 class="font-bold group-hover:text-primary transition">Karang Tengah, Tangerang</h4>
-                                <p class="text-sm text-slate-500">Klik untuk navigasi di Maps</p>
-                            </div>
-                        </a>
-                        <!-- Gading Serpong -->
-                        <a href="https://maps.google.com/?q=Kelapa+Dua+Gading+Serpong" target="_blank" class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 transition group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                            <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-slate-900"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <h4 class="font-bold group-hover:text-primary transition">Kelapa Dua, Gading Serpong</h4>
                                 <p class="text-sm text-slate-500">Klik untuk navigasi di Maps</p>
                             </div>
                         </a>
@@ -282,28 +301,67 @@
                         <a href="https://instagram.com/kilatwash" class="bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white p-4 rounded-2xl flex items-center justify-center gap-2 font-bold hover:opacity-90 transition">
                             <i class="fab fa-instagram text-xl"></i> @kilatwash
                         </a>
-                        <a href="mailto:hello@kilatwash.id" class="bg-slate-800 text-white p-4 rounded-2xl flex items-center justify-center gap-2 font-bold hover:opacity-90 transition">
-                            <i class="far fa-envelope text-xl"></i> hello@kilatwash.id
-                        </a>
                     </div>
                     <div class="p-6 bg-slate-100 dark:bg-slate-800 rounded-3xl border-l-4 border-primary">
-                        <h4 class="font-bold mb-1 italic">KEBIJAKAN GARANSI</h4>
-                        <p class="text-xs text-slate-500">Kami menjamin kepuasan Anda. Jika hasil cuci masih kotor, laporkan kepada kasir kami dalam 1x24 jam untuk pencucian ulang secara GRATIS!</p>
+                        <h4 class="font-bold mb-1 italic text-sm">GARANSI CUCI</h4>
+                        <p class="text-[10px] text-slate-500">Jika hasil cuci masih kurang memuaskan, segera lapor ke admin kami dalam 1x24 jam untuk RE-WASH GRATIS.</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
-                <p>&copy; 2024 Kilat Wash Premium. All rights reserved.</p>
-                <div class="flex gap-6 font-bold text-slate-700 dark:text-slate-300">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
+        // Data Lokasi
+        const locations = "Kedoya (Jakarta Barat) • Karang Tengah (Tangerang) • Kelapa Dua (Gading Serpong)";
+
+        // Fungsi Update Running Text & Status
+        function updateDynamicElements() {
+            const now = new Date();
+            
+            // Format Tanggal Indonesia
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('id-ID', options);
+
+            // Logika Jam Operasional
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const openHour = 8;
+            const closeHour = 21; 
+            const currentTimeInMinutes = (currentHour * 60) + currentMinute;
+            const openTimeInMinutes = openHour * 60;
+            const closeTimeInMinutes = closeHour * 60;
+            const isOpen = currentTimeInMinutes >= openTimeInMinutes && currentTimeInMinutes < closeTimeInMinutes;
+
+            // 1. Update Running Text
+            const runningTextEl = document.getElementById('running-text');
+            const statusTextMarquee = isOpen ? "KILAT WASH SEKARANG: BUKA (08:00 - 21:00)" : "KILAT WASH SEKARANG: TUTUP (BUKA KEMBALI BESOK 08:00)";
+            
+            // Menggabungkan semua info untuk Marquee
+            runningTextEl.innerText = `${dateStr}  •  ${statusTextMarquee}  •  LOKASI KAMI: ${locations}  •  RE-WASH GARANSI 24 JAM!  •  `;
+            // Duplikasi teks agar tidak ada celah saat looping (Opsional tapi bagus untuk visual)
+            runningTextEl.innerText += runningTextEl.innerText;
+
+            // 2. Update Status Toko (Hero & About)
+            const dotHome = document.getElementById('dot-status');
+            const textHome = document.getElementById('text-status-jam');
+            const statusAbout = document.getElementById('status-toko-about');
+
+            if (isOpen) {
+                dotHome.className = "flex h-3 w-3 rounded-full bg-green-500 animate-pulse";
+                textHome.innerHTML = `<span class="text-green-500 uppercase tracking-wider">Buka Sekarang</span> • 08:00 - 21:00`;
+                statusAbout.innerHTML = `<span class="px-3 py-1 bg-green-500/20 text-green-500 rounded-lg">BUKA SEKARANG</span>`;
+            } else {
+                dotHome.className = "flex h-3 w-3 rounded-full bg-red-500";
+                textHome.innerHTML = `<span class="text-red-500 uppercase tracking-wider">Tutup Sementara</span> • Buka jam 08:00 Besok`;
+                statusAbout.innerHTML = `<span class="px-3 py-1 bg-red-500/20 text-red-500 rounded-lg">TUTUP SEMENTARA</span>`;
+            }
+        }
+
+        // Jalankan saat load dan setiap 1 menit
+        updateDynamicElements();
+        setInterval(updateDynamicElements, 6000);
+
         // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
@@ -317,124 +375,30 @@
             }
         });
 
-        // Mobile Menu Logic
+        // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Carousel Scroll Logic
+        // Carousel Scroll
         const container = document.getElementById('category-carousel');
-        
         function scrollCarousel(direction) {
             const scrollAmount = container.clientWidth;
-            container.scrollBy({
-                left: direction * scrollAmount,
-                behavior: 'smooth'
-            });
-            // Reset interval auto-slide saat user menekan manual
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
             resetAutoSlide();
         }
 
-        // Auto-slide Logic
         let autoSlideInterval;
-
         function startAutoSlide() {
             autoSlideInterval = setInterval(() => {
                 const maxScrollLeft = container.scrollWidth - container.clientWidth;
                 if (container.scrollLeft >= maxScrollLeft - 10) {
                     container.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    scrollCarousel(1);
-                }
-            }, 3000); // Geser setiap 3 detik
+                } else { scrollCarousel(1); }
+            }, 5000); // Diperlambat sedikit agar user sempat baca
         }
-
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-
-        // Mulai auto-slide saat window siap
+        function resetAutoSlide() { clearInterval(autoSlideInterval); startAutoSlide(); }
         window.onload = startAutoSlide;
-
-        // Close mobile menu on click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Click Logo scroll to top (sudah terhandle lewat <a href="#home">)
-
-        // Jalankan saat load dan setiap 30 detik (tidak terlalu cepat)
-updateDynamicElements();
-setInterval(updateDynamicElements, 30000);
-
-
-// Theme Toggle Logic
-const themeToggleBtn = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
-
-themeToggleBtn.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    if (document.documentElement.classList.contains('dark')) {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
-});
-
-
-// Mobile Menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-
-// Carousel Scroll
-const container = document.getElementById('category-carousel');
-
-function scrollCarousel(direction) {
-    const scrollAmount = container.clientWidth / 2; // lebih pelan (setengah layar)
-    container.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-    });
-    resetAutoSlide();
-}
-
-
-// Auto Slide Loop
-let autoSlideInterval;
-
-function startAutoSlide() {
-    autoSlideInterval = setInterval(() => {
-        const maxScrollLeft = container.scrollWidth - container.clientWidth;
-
-        if (container.scrollLeft >= maxScrollLeft - 5) {
-            container.scrollTo({
-                left: 0,
-                behavior: 'smooth'
-            });
-        } else {
-            container.scrollBy({
-                left: 200, // geser sedikit saja supaya terlihat berjalan
-                behavior: 'smooth'
-            });
-        }
-
-    }, 3000); // lebih lambat
-}
-
-function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
-    startAutoSlide();
-}
-
-window.onload = startAutoSlide;
     </script>
 </body>
 </html>
