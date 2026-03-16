@@ -146,74 +146,86 @@
         </div>
     </div>
 
-    <!-- RIGHT CONTENT (CAROUSEL) -->
-    <div class="w-full">
+    <!-- Carousel Kategori -->
+            <div class="relative group mt-8 md:mt-0">
+                <button onclick="scrollManual(-1)" class="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100 hidden sm:flex">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button onclick="scrollManual(1)" class="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100 hidden sm:flex">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
 
-        <div class="relative group">
-
-            <button onclick="scrollManual(-1)"
-            class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100">
-            <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <button onclick="scrollManual(1)"
-            class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100">
-            <i class="fas fa-chevron-right"></i>
-            </button>
-
-
-            <div id="category-carousel"
-            class="flex overflow-x-auto snap-x snap-mandatory gap-6 py-4 scroll-smooth">
-
-                <!-- Slide 1 -->
-                <div class="min-w-[85%] md:min-w-[60%] lg:min-w-[45%] snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                    
-                    <div class="h-48 mb-6 rounded-2xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558981403-c5f91cb9c2f1?auto=format&fit=crop&q=80&w=800"
-                        class="w-full h-full object-cover">
+                <div id="category-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-4 carousel-container py-4">
+                    <!-- Slide 1 -->
+                    <div onclick="openMotorModal('kecil')" class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800 cursor-pointer hover:border-primary transition group/item">
+                        <div class="h-40 md:h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1558981403-c5f91cb9c2f1?auto=format&fit=crop&q=80&w=800" alt="Motor Kecil" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover/item:opacity-100 transition flex items-center justify-center">
+                                <span class="bg-white px-4 py-2 rounded-full text-slate-900 font-bold text-xs shadow-lg">Klik untuk Detail</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-2">Kategori Kecil</h3>
+                        <p class="text-slate-500 mb-4 text-[11px] md:text-sm italic">Beat, Vario, Scoopy, Fazzio, dll.</p>
                     </div>
-
-                    <h3 class="text-2xl font-bold mb-2">Kategori Kecil</h3>
-
-                    <p class="text-slate-500 text-sm">
-                    Motor Bebek/Cub, Matic Ringkas
-                    </p>
+                    <!-- Slide 2 -->
+                    <div onclick="openMotorModal('sedang')" class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800 cursor-pointer hover:border-primary transition group/item">
+                        <div class="h-40 md:h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800" alt="Motor Sedang" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover/item:opacity-100 transition flex items-center justify-center">
+                                <span class="bg-white px-4 py-2 rounded-full text-slate-900 font-bold text-xs shadow-lg">Klik untuk Detail</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-2">Kategori Sedang</h3>
+                        <p class="text-slate-500 mb-4 text-[11px] md:text-sm italic">Nmax, PCX, Aerox, ADV, dll.</p>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div onclick="openMotorModal('sport')" class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800 cursor-pointer hover:border-primary transition group/item">
+                        <div class="h-40 md:h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=800" alt="Motor Sport" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover/item:opacity-100 transition flex items-center justify-center">
+                                <span class="bg-white px-4 py-2 rounded-full text-slate-900 font-bold text-xs shadow-lg">Klik untuk Detail</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-2">Kategori Sport</h3>
+                        <p class="text-slate-500 mb-4 text-[11px] md:text-sm italic">Xmax, R25, Harley, Moge, dll.</p>
+                    </div>
                 </div>
-
-                <!-- Slide 2 -->
-                <div class="min-w-[85%] md:min-w-[60%] lg:min-w-[45%] snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                    
-                    <div class="h-48 mb-6 rounded-2xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800"
-                        class="w-full h-full object-cover">
-                    </div>
-
-                    <h3 class="text-2xl font-bold mb-2">Kategori Sedang</h3>
-
-                    <p class="text-slate-500 text-sm">
-                    Maxi Scooter & Sport Naked
-                    </p>
-                </div>
-
-
-                <!-- Slide 3 -->
-                <div class="min-w-[85%] md:min-w-[60%] lg:min-w-[45%] snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                    
-                    <div class="h-48 mb-6 rounded-2xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=800"
-                        class="w-full h-full object-cover">
-                    </div>
-
-                    <h3 class="text-2xl font-bold mb-2">Kategori Sport / Big Bike</h3>
-
-                    <p class="text-slate-500 text-sm">
-                    XMAX, Forza, 250cc+, Harley</p>
-                    </div>
+                
+                <!-- Indikator Slide -->
+                <div class="flex justify-center gap-2 mt-4">
+                    <div class="indicator w-6 h-2 rounded-full bg-primary transition-all duration-300"></div>
+                    <div class="indicator w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700 transition-all duration-300"></div>
+                    <div class="indicator w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700 transition-all duration-300"></div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Modal Kategori Motor -->
+    <div id="motor-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeMotorModal()"></div>
+        <div class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] p-8 relative shadow-2xl border border-slate-100 dark:border-slate-800 transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <button onclick="closeMotorModal()" class="absolute top-6 right-6 text-slate-400 hover:text-primary transition">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="mb-6">
+                <div id="modal-icon" class="text-4xl text-primary mb-4"></div>
+                <h2 id="modal-title" class="text-2xl font-black italic uppercase tracking-tighter"></h2>
+                <p id="modal-subtitle" class="text-sm text-slate-500 mt-1"></p>
+            </div>
+
+            <div class="space-y-3 max-h-60 overflow-y-auto modal-scroll pr-2" id="motor-list">
+                <!-- Daftar motor akan diisi via JS -->
+            </div>
+
+            <div class="mt-8">
+                <button onclick="closeMotorModal()" class="w-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white py-4 rounded-2xl font-bold hover:bg-primary hover:text-slate-900 transition">
+                    Tutup
+                </button>
+            </div>
+        </div>
     </div>
-</section>
 
     <!-- Services Section -->
     <section id="cuci" class="py-20 bg-white dark:bg-slate-900">
@@ -236,8 +248,7 @@
                 <div class="group/card p-8 rounded-3xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary dark:hover:border-primary transition duration-300 bg-slate-50/30 dark:bg-slate-800/20 hover:shadow-xl hover:shadow-yellow-400/10">
                     <div class="text-4xl text-primary mb-4"><i class="fas fa-sparkles"></i></div>
                     <h3 class="text-2xl font-bold mb-2 uppercase">Kilau</h3>
-                    <p class="text-slate-500 mb-2" style="font-size:18px;">Cuci bersih menyeluruh + Free Semir Ban agar tetap elegan di jalan.</p>
-                    <ul class="text-left space-y-3 mb-8 text-sm font-bold">
+                        <p class="text-slate-500 text-sm mb-6" style="font-size:18px;">Kinclong + Waxing Body halus & kasar. Memberikan tampilan kilap.</p>                    <ul class="text-left space-y-3 mb-8 text-sm font-bold">
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Kecil</span> <span class="font-bold text-primary">Rp 40rb</span></li>
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Sedang</span> <span class="font-bold text-primary">Rp 45rb</span></li>
                         <li class="flex justify-between border-b pb-2 dark:border-slate-700"><span>Sport</span> <span class="font-bold text-primary">Rp 50rb</span></li>
@@ -419,6 +430,65 @@
             }
         }
 
+        // === DATA MOTOR ===
+        const motorData = {
+            kecil: {
+                title: "Kategori Kecil",
+                subtitle: "Motor Bebek & Matic Ringkas",
+                icon: '<i class="fas fa-motorcycle"></i>',
+                list: ["Beat", "Vario (110/125)", "Scoopy", "Fazzio", "Supra X / Fit", "Satria FU", "Motor Listrik (Uwinfly, etc)", "Mio Series", "Genio"]
+            },
+            sedang: {
+                title: "Kategori Sedang",
+                subtitle: "Maxi Scooter & Naked Bike",
+                icon: '<i class="fas fa-moped"></i>',
+                list: ["Nmax", "PCX", "Aerox", "ADV 150/160", "Lexi", "Stylo 160", "Vixion", "CB150R", "Ninja 150 RR", "Vario 160"]
+            },
+            sport: {
+                title: "Kategori Sport",
+                subtitle: "Big Bike & Premium Category",
+                icon: '<i class="fas fa-gauge-high"></i>',
+                list: ["Xmax", "Forza", "R25 / R15", "Ninja 250 / ZX25R", "Harley Davidson", "CBR250RR", "Moge (600cc+)", "Vespa Matic", "Tmax"]
+            }
+        };
+
+        // === LOGIKA MODAL ===
+        const modal = document.getElementById('motor-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const modalSubtitle = document.getElementById('modal-subtitle');
+        const modalIcon = document.getElementById('modal-icon');
+        const motorList = document.getElementById('motor-list');
+
+        function openMotorModal(category) {
+            const data = motorData[category];
+            modalTitle.innerText = data.title;
+            modalSubtitle.innerText = data.subtitle;
+            modalIcon.innerHTML = data.icon;
+            
+            motorList.innerHTML = '';
+            data.list.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700 font-bold text-sm uppercase";
+                div.innerHTML = `<i class="fas fa-check text-primary text-[10px]"></i> ${item}`;
+                motorList.appendChild(div);
+            });
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeMotorModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
         // === CAROUSEL LOGIC DENGAN AUTO-SLIDE ===
         const carousel = document.getElementById('category-carousel');
         const indicators = document.querySelectorAll('.indicator');
@@ -464,7 +534,7 @@
         }
 
         let interactionTimeout;
-        let autoSlideInterval = setInterval(nextSlide, 3500); // Ganti slide setiap 3.5 detik
+        let autoSlideInterval = setInterval(nextSlide, 4000); // Ganti slide setiap 4 detik
 
         // Event listener untuk memantau scroll manual (swipe di HP)
         carousel.addEventListener('scroll', () => {
