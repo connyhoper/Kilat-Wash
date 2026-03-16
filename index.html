@@ -368,6 +368,73 @@
         });
 
         // Click Logo scroll to top (sudah terhandle lewat <a href="#home">)
+
+        // Jalankan saat load dan setiap 30 detik (tidak terlalu cepat)
+updateDynamicElements();
+setInterval(updateDynamicElements, 30000);
+
+
+// Theme Toggle Logic
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+themeToggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if (document.documentElement.classList.contains('dark')) {
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+});
+
+
+// Mobile Menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+
+// Carousel Scroll
+const container = document.getElementById('category-carousel');
+
+function scrollCarousel(direction) {
+    const scrollAmount = container.clientWidth / 2; // lebih pelan (setengah layar)
+    container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+    resetAutoSlide();
+}
+
+
+// Auto Slide Loop
+let autoSlideInterval;
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+        if (container.scrollLeft >= maxScrollLeft - 5) {
+            container.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            container.scrollBy({
+                left: 200, // geser sedikit saja supaya terlihat berjalan
+                behavior: 'smooth'
+            });
+        }
+
+    }, 3000); // lebih lambat
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+window.onload = startAutoSlide;
     </script>
 </body>
 </html>
