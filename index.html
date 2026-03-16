@@ -117,63 +117,103 @@
                     <span id="text-status-jam">Memuat status...</span>
                 </div>
 
-                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-md">Layanan cuci motor premium dengan teknologi steam terbaru. Bersih sampai ke sela-sela terdalam dalam waktu singkat.</p>
+    
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-                <div class="mt-8 mb-6 flex items-center gap-2 text-green-500 font-bold"><i class="fas fa-check-circle"></i>
-                <span>Garansi 1x24 Jam Re-Wash Free!</span>
+    <!-- LEFT CONTENT -->
+        <div class="w-full">
+
+        <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
+        Layanan cuci motor premium dengan teknologi steam terbaru. Bersih sampai ke sela-sela terdalam dalam waktu singkat.
+        </p>
+
+        <div class="mb-6 flex items-center gap-2 text-green-500 font-bold">
+            <i class="fas fa-check-circle"></i>
+            <span>Garansi 1x24 Jam Re-Wash Free!</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+
+            <a href="#cuci"
+            class="bg-primary text-slate-900 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-center hover:scale-105 transition shadow-lg shadow-yellow-400/20">
+            Lihat Menu
+            </a>
+
+            <a href="#promo"
+            class="border-2 border-slate-300 dark:border-slate-700 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-center hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            Promo Hemat
+            </a>
+        </div>
+    </div>
+
+    <!-- RIGHT CONTENT (CAROUSEL) -->
+    <div class="w-full">
+
+        <div class="relative group">
+
+            <button onclick="scrollManual(-1)"
+            class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100">
+            <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <button onclick="scrollManual(1)"
+            class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100">
+            <i class="fas fa-chevron-right"></i>
+            </button>
+
+
+            <div id="category-carousel"
+            class="flex overflow-x-auto snap-x snap-mandatory gap-6 py-4 scroll-smooth">
+
+                <!-- Slide 1 -->
+                <div class="min-w-[85%] md:min-w-[60%] lg:min-w-[45%] snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
+                    
+                    <div class="h-48 mb-6 rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558981403-c5f91cb9c2f1?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover">
+                    </div>
+
+                    <h3 class="text-2xl font-bold mb-2">Kategori Kecil</h3>
+
+                    <p class="text-slate-500 text-sm">
+                    Motor Bebek/Cub, Matic Ringkas
+                    </p>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-4"><a href="#cuci" class="bg-primary text-slate-900 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-center hover:scale-105 transition shadow-lg shadow-yellow-400/20">Lihat Menu</a>
+                <!-- Slide 2 -->
+                <div class="min-w-[85%] md:min-w-[60%] lg:min-w-[45%] snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
+                    
+                    <div class="h-48 mb-6 rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover">
+                    </div>
 
-                <a href="#promo" class="border-2 border-slate-300 dark:border-slate-700 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-center hover:bg-slate-100 dark:hover:bg-slate-800 transition">Promo Hemat</a>
+                    <h3 class="text-2xl font-bold mb-2">Kategori Sedang</h3>
+
+                    <p class="text-slate-500 text-sm">
+                    Maxi Scooter & Sport Naked
+                    </p>
+                </div>
+
+
+                <!-- Slide 3 -->
+                <div class="min-w-[85%] md:min-w-[60%] lg:min-w-[45%] snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
+                    
+                    <div class="h-48 mb-6 rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover">
+                    </div>
+
+                    <h3 class="text-2xl font-bold mb-2">Kategori Sport / Big Bike</h3>
+
+                    <p class="text-slate-500 text-sm">
+                    XMAX, Forza, 250cc+, Harley</p>
+                    </div>
+                </div>
             </div>
         </div>
-                            
-            <!-- Category Carousel -->
-            <div class="relative group">
-                <button onclick="scrollManual(-1)" class="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button onclick="scrollManual(1)" class="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all opacity-0 group-hover:opacity-100">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-
-                <div id="category-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-4 carousel-container py-4">
-                    <!-- Slide 1 -->
-                    <div class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                        <div class="h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1558981403-c5f91cb9c2f1?auto=format&fit=crop&q=80&w=800" alt="Motor Kecil" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">Kategori Kecil</h3>
-                        <p class="text-slate-500 mb-4 text-sm">Motor Bebek/Cub, Matic Ringkas (Beat, Scoopy, Vario, Gear, dll)</p>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                        <div class="h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800" alt="Motor Sedang" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">Kategori Sedang</h3>
-                        <p class="text-slate-500 mb-4 text-sm">Maxi Scooter & Sport Naked (NMAX, PCX, Vixion, CB150R, dll)</p>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="min-w-full snap-center p-6 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                        <div class="h-48 mb-6 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=800" alt="Motor Sport" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">Kategori Sport / Big Bike</h3>
-                        <p class="text-slate-500 mb-4 text-sm">XMAX, Forza, 250cc+, Harley, Moge, dll.</p>
-                    </div>
-                </div>
-                
-                <!-- Indicators -->
-                <div class="flex justify-center gap-2 mt-4">
-                    <div class="indicator w-2 h-2 rounded-full bg-primary transition-all duration-300"></div>
-                    <div class="indicator w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700 transition-all duration-300"></div>
-                    <div class="indicator w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700 transition-all duration-300"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- Services Section -->
     <section id="cuci" class="py-20 bg-white dark:bg-slate-900">
