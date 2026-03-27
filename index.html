@@ -310,7 +310,7 @@
                         <h3 class="text-2xl font-black uppercase">VIP UNLIMITED</h3>
                         <i class="fas fa-crown text-3xl"></i>
                     </div>
-                    <p class="font-medium mb-6 opacity-80">Bebas cuci Basic Glow kapanpun selama 3 bulan penuh!</p>
+                    <p class="font-medium mb-6 opacity-80">Bebas Cuci Kinclong kapanpun selama 3 bulan penuh!</p>
                     <div class="space-y-4">
                         <div class="flex items-center justify-between p-4 bg-white/20 rounded-xl backdrop-blur-sm border border-white/30">
                             <span class="font-bold">Motor Kecil</span>
@@ -383,11 +383,106 @@
             <p class="text-xs text-slate-700 dark:text-white font-medium italic">Garansi kepuasan: Hubungi kami dalam 1x24 jam untuk klaim cuci ulang gratis jika hasil tidak sesuai.</p>
         </div>
     </div>
-        <div class="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 font-bold uppercase tracking-widest">
-            &copy; 2024 Kilat Wash.
-        </div>
+       <div class="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col items-center gap-4">
+            <!-- Syarat & Ketentuan Button -->
+            <button onclick="openTermsModal()" class="text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-primary transition cursor-pointer">
+                Syarat & Ketentuan
+            </button>
+            <!-- Copyright Text -->
+            <div class="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest px-4">
+                &copy; 2026 Kilat Wash.
+            </div>
+        </div>      
     </footer>
 
+     <div id="motor-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeMotorModal()"></div>
+        <div class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] p-8 relative shadow-2xl border border-slate-100 dark:border-slate-800 transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <button onclick="closeMotorModal()" class="absolute top-6 right-6 text-slate-400 hover:text-primary transition">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="mb-6">
+                <div id="modal-icon" class="text-4xl text-primary mb-4"></div>
+                <h2 id="modal-title" class="text-2xl font-black italic uppercase tracking-tighter"></h2>
+                <p id="modal-subtitle" class="text-sm text-slate-500 mt-1"></p>
+            </div>
+            <div class="space-y-3 max-h-60 overflow-y-auto modal-scroll pr-2" id="motor-list"></div>
+            <div class="mt-8">
+                <button onclick="closeMotorModal()" class="w-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white py-4 rounded-2xl font-bold hover:bg-primary hover:text-slate-900 transition">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Syarat & Ketentuan -->
+    <div id="terms-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeTermsModal()"></div>
+        <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-[2.5rem] p-8 relative shadow-2xl border border-slate-100 dark:border-slate-800 transform scale-95 opacity-0 transition-all duration-300" id="terms-content">
+            <button onclick="closeTermsModal()" class="absolute top-6 right-6 text-slate-400 hover:text-primary transition">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="mb-6">
+                <h2 class="text-2xl font-black italic uppercase tracking-tighter">Syarat & Ketentuan</h2>
+                <p class="text-xs text-primary font-bold mt-1">Harap baca sebelum menggunakan layanan kami</p>
+            </div>
+            <div class="space-y-6 max-h-[60vh] overflow-y-auto modal-scroll pr-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">1. Garansi Cuci (Re-Wash)</h4>
+                    <p>Kami memberikan garansi cuci ulang gratis 1x24 jam jika hasil cuci dianggap kurang bersih. Pelanggan wajib menunjukkan nota bukti pembayaran atau dokumentasi sebelum meninggalkan area cuci.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">2. Barang Berharga</h4>
+                    <p>Pelanggan wajib mengamankan barang berharga (Helm, Jaket, Dompet, HP) sebelum menyerahkan kunci kepada kru. Kilat Wash tidak bertanggung jawab atas kehilangan barang yang ditinggalkan di motor.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">3. Kerusakan Kendaraan</h4>
+                    <p>Kami tidak bertanggung jawab atas kerusakan motor yang disebabkan oleh usia kendaraan (seperti cat yang sudah mengelupas, stiker yang sudah rapuh, atau korsleting akibat kabel telanjang).</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">4. Pengambilan Unit</h4>
+                    <p>Motor yang sudah selesai dicuci harap segera diambil. Kami tidak bertanggung jawab atas unit yang tidak diambil lebih dari 12 jam setelah pemberitahuan selesai.</p>
+                </section>
+            </div>
+            <div class="mt-8">
+                <button onclick="closeTermsModal()" class="w-full bg-primary text-slate-900 py-4 rounded-2xl font-bold hover:scale-[1.02] transition shadow-lg shadow-yellow-400/20">Saya Mengerti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Syarat & Ketentuan -->
+    <div id="terms-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeTermsModal()"></div>
+        <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-[2.5rem] p-8 relative shadow-2xl border border-slate-100 dark:border-slate-800 transform scale-95 opacity-0 transition-all duration-300" id="terms-content">
+            <button onclick="closeTermsModal()" class="absolute top-6 right-6 text-slate-400 hover:text-primary transition">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="mb-6">
+                <h2 class="text-2xl font-black italic uppercase tracking-tighter">Syarat & Ketentuan</h2>
+                <p class="text-xs text-primary font-bold mt-1">Harap baca sebelum menggunakan layanan kami</p>
+            </div>
+            <div class="space-y-6 max-h-[60vh] overflow-y-auto modal-scroll pr-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">1. Garansi Cuci (Re-Wash)</h4>
+                    <p>Kami memberikan garansi cuci ulang gratis 1x24 jam jika hasil cuci dianggap kurang bersih. Pelanggan wajib menunjukkan nota bukti pembayaran atau dokumentasi sebelum meninggalkan area cuci.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">2. Barang Berharga</h4>
+                    <p>Pelanggan wajib mengamankan barang berharga (Helm, Jaket, Dompet, HP) sebelum menyerahkan kunci kepada kru. Kilat Wash tidak bertanggung jawab atas kehilangan barang yang ditinggalkan di motor.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">3. Kerusakan Kendaraan</h4>
+                    <p>Kami tidak bertanggung jawab atas kerusakan motor yang disebabkan oleh usia kendaraan (seperti cat yang sudah mengelupas, stiker yang sudah rapuh, atau korsleting akibat kabel telanjang).</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-slate-900 dark:text-white uppercase text-xs mb-2 tracking-widest">4. Pengambilan Unit</h4>
+                    <p>Motor yang sudah selesai dicuci harap segera diambil. Kami tidak bertanggung jawab atas unit yang tidak diambil lebih dari 12 jam setelah pemberitahuan selesai.</p>
+                </section>
+            </div>
+            <div class="mt-8">
+                <button onclick="closeTermsModal()" class="w-full bg-primary text-slate-900 py-4 rounded-2xl font-bold hover:scale-[1.02] transition shadow-lg shadow-yellow-400/20">Saya Mengerti</button>
+            </div>
+        </div>
+    </div>
+        
     <script>
         // === LOGIKA DINAMIS (Waktu, Status, Running Text) ===
         const locations = "Kedoya (Jakarta Barat) • Karang Tengah (Tangerang) • Kelapa Dua (Gading Serpong)";
@@ -585,6 +680,25 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    
+        // === LOGIKA MODAL SYARAT & KETENTUAN ===
+        const termsModal = document.getElementById('terms-modal');
+        const termsContent = document.getElementById('terms-content');
+
+        function openTermsModal() {
+            termsModal.classList.remove('hidden');
+            setTimeout(() => {
+                termsContent.classList.remove('scale-95', 'opacity-0');
+                termsContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeTermsModal() {
+            termsContent.classList.remove('scale-100', 'opacity-100');
+            termsContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => termsModal.classList.add('hidden'), 300);
+        }
+    
     </script>
 </body>
 </html>
